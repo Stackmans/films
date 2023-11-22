@@ -1,0 +1,21 @@
+{% extends 'movie_app/base.html'%}
+
+
+{% block title %} Усі фільми {% endblock %}
+
+{% block content %}
+
+<h2>Список усіх фільмів</h2>
+
+    <ul>
+        {% for movie in movies %}
+        <li><h3><a href="{{ movie.get_url }}">{{ movie.name }}</a>  </h3></li>
+        {% endfor %}
+    </ul>
+
+<h3>Середній бюджет {{ agg.budget__avg }}</h3>
+<h3>Мінімальний рейтинг {{ agg.rating__min }}</h3>
+<h3>Максимальний рейтинг {{ agg.rating__max }}</h3>
+<h3>Всього фільмів {{ agg.id__count }}</h3>
+
+{% endblock %}
